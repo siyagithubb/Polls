@@ -1,0 +1,38 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Poll List{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            {% if latest_question_list %}
+            <ul class="list-group">
+                {% for question in latest_question_list %}
+                <li class="list-group-item poll-item">
+                    <a href="{% url 'polls:detail' question.id %}/">{{ question.question_text }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="no-polls">No polls are available.</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Additional CSS styles */
+    .poll-list-container {
+        margin-top: 50px;
+    }
+    .no-polls {
+        margin-top: 20px;
+        color: #dc3545; /* Bootstrap danger color */
+    }
+    .poll-item {
+        padding: 15px;
+        font-size: 1.2em;
+    }
+</style>
+{% endblock %}

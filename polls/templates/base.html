@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Site{% endblock %}</title>
+    <!-- Add any additional meta tags, CSS, or JavaScript imports here -->
+</head>
+<body>
+    <header>
+        <!-- Your header content goes here -->
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'polls' %}">Polls</a></li> <!-- This is the new link -->
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Default content if no block defined in child template -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <!-- Your footer content goes here -->
+        <p>&copy; {{ year }} MySite. All rights reserved.</p>
+    </footer>
+</body>
+</html>

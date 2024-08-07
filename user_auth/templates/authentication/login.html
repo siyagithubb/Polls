@@ -1,0 +1,11 @@
+<h1>Login as User</h1>
+<form action="{% url 'user_auth:authenticate_user' %}" method="post">
+    {% csrf_token %}
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" placeholder="User" required>
+    <br><br>
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required>
+    <br><br>
+    <input type="submit" value="Login">
+</form>
